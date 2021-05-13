@@ -1,64 +1,25 @@
 # Intuitive project - Bob the bird keeper
 
+## Problem
 
-This project's goal was to recognize the emotions from different speech files coming from the Emo-DB dataset.
+Bob the bird keeper has a problem that he thinks you can help him with. His birds are constantly harassed by the neighbor’s cats who are looking for a quick dinner. To protect his birds, Bob has setup a camera triggered alarm that goes off when a cat is nearby. In order to help Bob, please design and implement an automated algorithm that triggers when a cat is in view of the camera. To reassure him that his birds are alive and well, please also detect if a bird is present in the frame of view.
 
-The data is processed, trained and the resulting model is evaluated in this project.
+We have prepared a small dataset to help you out with this problem which contains images of birds and cats with corresponding annotations. The dataset can be downloaded here:
 
-## Launch the project
+[https://intusurg.box.com/s/yyfqxmjmjm7l7uktacb88yboekwxe7vg](https://intusurg.box.com/s/yyfqxmjmjm7l7uktacb88yboekwxe7vg)
 
-The project is put inside of a docker container. One output of this container is a jupyter notebook containing the whole process (from cleaning to training and evaluating the data) and a Flask API for training and evaluating the model.
+For your model evaluation, please output a figure which properly depicts your results. We will ask you to describe your selected evaluation method and present the results.
 
-To deploy the container, do (you must be in the same directory as the makefile):
+## Install the packages
 
-``` make install```
+To run this project, please install the required packages byy running the following command : 
 
-In case this does not work (for whatever reason), just do the following:
+```pip3 install -r requirements.txt```
 
-```docker build -t container_max .```
+## Download the dataset
 
-```docker run -p 5000:5000 -p 8888:8888 --gpus all container_max```
-___
-## Access the notebook
+As stated in the problem statement, the dataset can be downloaded [here](ttps://intusurg.box.com/s/yyfqxmjmjm7l7uktacb88yboekwxe7vg). Once downloaded, please extract the data in the same directory as the jupyter notebook. 
 
-To access the jupyter notebook, go to your usual navigator and type:
+For the rest, I hope tha you will be satisfied with this project. 
 
-[```http://localhost:8888/ ```](http://localhost:8888/ )
-
-The password is **visium**
-__
-## Access the flask endpoints
-
-To access the Flask api, go to:
-
-[```http://localhost:5000```](http://localhost:5000 )
-
-
-There should be two links:
-- Training link :
-    [```http://localhost:5000/train_model```](http://localhost:5000/train_model )
-    It **needs** to be run before the evl step. You will be able to set your parameters for the training within this window. Click on submit to train. **(A recommended number of 200 EPOCHS is necessary for great results)**.
-
-    The first run takes some time since it first need to process the dataset.
-
-    ![png](docs/training.png)
-
-    From there, you can set the learning rate, batch size, file path  (which should not really be changed after some reflection) and epochs.
-
-    For a fast result, I left 2 epochs in the training parameters. To have good results, try with a higher number of epochs. I recommend 200 epochs.
-
-    Please adjust the batch size depending on your hardware for better results/loadability of the model (A batch size of 21 correspond to 8Gb on a 3070RTX).
-
-
-- Eval link :
-    [```http://localhost:5000/eval```](http://localhost:5000/eval )
-    
-    You will only be able to process your desired file if you have already trained a model beforehand. Once it is done, the latest trained model will be used.
-
-
-    ![png](docs/eval.png)
-
-    Once you trained a model, select your desired file from the drop-down list and click on submit.
-
-**Disclaimer:**
-It is my very first project with flask hence, my coding practice for this package are not yet top notch.
+Have a great day !!

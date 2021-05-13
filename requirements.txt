@@ -1,0 +1,7 @@
+jupyterlab
+#? For compatibility issues
+jupyter_server==1.6.4
+numpy
+matplotlib
+torch
+torchvision
